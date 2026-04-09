@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { X, User, Phone, Mail, MapPin, Calendar, Dumbbell, AlertCircle, FileText, Save, Loader2 } from 'lucide-react';
 import { Member, TRAINERS, PLANS, Plan, Gender, PaymentMode } from './memberData';
+import Icon from '@/components/ui/AppIcon';
+
 
 interface MemberModalProps {
   member: Member | null;

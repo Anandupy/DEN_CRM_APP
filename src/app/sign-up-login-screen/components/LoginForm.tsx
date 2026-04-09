@@ -212,6 +212,7 @@ export default function LoginForm() {
                   <button
                     key={`role-tab-${role}`}
                     onClick={() => handleRoleChange(role)}
+                    suppressHydrationWarning
                     className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-semibold transition-all duration-150 ${
                       isActive
                         ? 'bg-zinc-800 text-zinc-100 shadow-sm'

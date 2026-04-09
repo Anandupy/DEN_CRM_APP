@@ -1,1 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 240 8% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 8% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 240 5% 14%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 14%;
+    --input: 240 5% 14%;
+    --ring: 38 92% 50%;
+    --radius: 0.75rem;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(240 8% 7%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(240 5% 20%);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(240 5% 30%);
+  }
+}
+
+@layer components {
+  .stat-value {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60 transition-all duration-150 cursor-pointer text-sm font-medium;
+  }
+
+  .sidebar-nav-item.active {
+    @apply bg-amber-500/15 text-amber-400 hover:bg-amber-500/20 hover:text-amber-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-active {
+    @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-pending {
+    @apply bg-amber-500/15 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-overdue {
+    @apply bg-red-500/15 text-red-400 border border-red-500/20;
+  }
+
+  .badge-expired {
+    @apply bg-zinc-500/15 text-zinc-400 border border-zinc-500/20;
+  }
+
+  .badge-inactive {
+    @apply bg-zinc-600/20 text-zinc-500 border border-zinc-600/20;
+  }
+
+  .metric-card {
+    @apply bg-zinc-900 border border-zinc-800 rounded-xl p-5 relative overflow-hidden;
+  }
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-400 active:scale-95 text-zinc-950 font-semibold px-4 py-2.5 rounded-lg transition-all duration-150 text-sm flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-zinc-800 hover:bg-zinc-700 active:scale-95 text-zinc-200 font-medium px-4 py-2.5 rounded-lg transition-all duration-150 text-sm flex items-center gap-2 border border-zinc-700;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/15 hover:bg-red-500/25 active:scale-95 text-red-400 font-medium px-4 py-2.5 rounded-lg transition-all duration-150 text-sm flex items-center gap-2 border border-red-500/20;
+  }
+
+  .form-input {
+    @apply w-full bg-zinc-800/60 border border-zinc-700 rounded-lg px-3 py-2.5 text-zinc-100 text-sm placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all duration-150;
+  }
+
+  .form-label {
+    @apply block text-xs font-medium text-zinc-400 mb-1.5 tracking-wide uppercase;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-zinc-800/40 transition-colors duration-100;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-up {
+    animation: slideUp 0.2s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pulse-highlight {
+    animation: pulseHighlight 0.6s ease-out;
+  }
+
+  @keyframes pulseHighlight {
+    0% { background-color: hsl(38 92% 50% / 0.15); }
+    100% { background-color: transparent; }
+  }
+}
